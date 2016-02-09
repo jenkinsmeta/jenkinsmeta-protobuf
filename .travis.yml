@@ -1,7 +1,7 @@
 script:
   - mkdir build
   - protoc --proto_path=src --python_out=build src/*
-  - zip -r jenkinsmeta_protobuf.zip src
+  - zip -r jenkinsmeta_protobuf.zip build
 before_script:
   - wget https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
   - tar -xzvf protobuf-2.6.1.tar.gz
