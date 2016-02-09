@@ -13,4 +13,4 @@ deploy:
   file: jenkinsmeta_protobuf.zip
   skip_cleanup: true
   on:
-    repo: jenkinsmeta/jenkinsmeta-protobuf
+    tags: true
