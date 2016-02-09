@@ -1,7 +1,16 @@
 script:
   - mkdir build
   - protoc --proto_path=src --python_out=build src/*
+  - zip -r jenkinsmeta_protobuf.zip src
 before_script:
   - wget https://github.com/google/protobuf/releases/download/v2.6.1/protobuf-2.6.1.tar.gz
   - tar -xzvf protobuf-2.6.1.tar.gz
   - cd protobuf-2.6.1.tar.gz && ./configure --prefix=/usr && make && sudo make install
+deploy:
+  provider: releases
+  api_key:
+    secure: etw49HLkt6dBl/zQ7O61nEDV+2SXhQ1YjU4xLIODXH1J3a0vPEjixDJtSNGAwd5Q1Z24uWi876fjuB5RBPaZ5avC0nrmOI0CdT+Nb2WnQ7npRbQGqAsdeSLNst+qjR/6WDcQhRHi7YuOFRlVnFtZD8RSW3JYG7C1IcmMP9X6ZEybc9ZK6jE/eZ+xXFcpVa99ArXKTVd+DgZuhvQx7+/ZAjTqWGQNDWOM5GC+HWi1koRQ96MsUdosLRQW9Wqh+G4Law259LBK6WrNYrRvOccioeg6cBaj6AhNatu6HM2iVJ9JAxSJd0OIGYXftVbJ52rZjgTELlMf7wnrt7uu+4CmvPaPdocpa5+IEFKBru8gdIa6pasTvhUHLlTfZKlK6SRXKYnIWVKLOrzEf1MTeu0H72f/a6DEWV0XY+1z70EwGY6/CUSZvJWOO1f17/4lrLEPpm2ONpv8dq1lLINjVwGeV5Osap8KCXzsWFBj6IST9eRbNVWvA0U2lGB+QpYEctkroOxXmB+cL/7PVyMBFcmMJjFir51m9+ai0JfmwF6SJGZa70jVuKyDNRPRlNNicpyBPB7Xu9Oin0BgJQ5Kc89Dj8NwPSZkKrN0Y/Lyd6RYqRf9oCP7myqr5UBJOrAQWZ2exRbIqiGD5vV2Izs0NFq23aMJPdTPV+nEAJ2IF55f0Xw=
+  file: jenkinsmeta_protobuf.zip
+  skip_cleanup: true
+  on:
+    repo: jenkinsmeta/jenkinsmeta-protobuf
