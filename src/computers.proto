@@ -21,4 +21,6 @@ message Computers {
         required string url = 4;
     }
 
+    repeated Computer computer = 1;
+
 }
