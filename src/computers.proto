@@ -1,4 +1,11 @@
 message Computers {
+
+    message Computer {
+        required string name = 1;
+        required int32 executors = 2;
+        repeated Job job = 3;
+    }
+
     enum JobState {
         ACTIVE = 1;
         STOPPED = 2;
@@ -6,16 +13,12 @@ message Computers {
         SUCCESS = 4;
         UNKNOWN = 5;
     }
+
     message Job {
         required JobState state = 1 [ default = UNKNOWN ]; 
         required string name = 2;
         required int32 build_number = 3;
         required string url = 4;
     }
-    message Executor {
-        required string name = 1;
-        required int32 count = 2;
-        repeated Job job = 3;
-    }
-    repeated Executor executor = 1;
+
 }
