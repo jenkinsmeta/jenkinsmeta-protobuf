@@ -5,5 +5,5 @@ class Computers():
     def __init__(self):
         self.protocol = computers_pb2.Computers()
 
-    def to_json(self):
+    def debug(self):
         pass
