@@ -1,0 +1,13 @@
+message Queue {
+
+    message Job {
+      required string url = 1;
+      required int64 in_queue_since = 2;
+      required int32 id = 3;
+      optional string why = 4;
+      optional bool blocked = 5;
+    }
+
+    repeated Job job = 1;
+
+}
