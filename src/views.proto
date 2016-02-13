@@ -1,1 +1,10 @@
-message Views {}
+message Views {
+
+    message View {
+        required string name = 1;
+        required string url = 2;
+    }
+
+    repeated View view = 1;
+    
+}
