@@ -8,9 +8,9 @@ message View {
     }
     
     message Job {
-        required string name = 1;
-        required string url = 2;
         required JobState state = 1 [ default = UNKNOWN ]; 
+        required string name = 2;
+        required string url = 3;
 
     }
 
