@@ -1,0 +1,25 @@
+message View {
+    enum JobState {
+        ACTIVE = 1;
+        STOPPED = 2;
+        FAILED = 3;
+        SUCCESS = 4;
+        UNKNOWN = 5;
+    }
+    
+    message Job {
+        required string name = 1;
+        required string url = 2;
+        required JobState state = 1 [ default = UNKNOWN ]; 
+
+    }
+
+    message Jobs {
+        repeated Job job = 1;
+    }
+
+
+    optional string description = 1;
+    required Jobs jobs = 2;
+ 
+}
