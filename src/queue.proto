@@ -1,11 +1,12 @@
 message Queue {
 
     message Job {
-      required string url = 1;
-      required int64 in_queue_since = 2;
-      required int32 id = 3;
-      optional string why = 4;
-      optional bool blocked = 5;
+      required string name = 1;
+      required string url = 2;
+      required int64 in_queue_since = 3;
+      required int32 id = 4;
+      optional string why = 5;
+      optional bool blocked = 6;
     }
 
     repeated Job job = 1;
