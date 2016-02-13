@@ -20,6 +20,6 @@ message View {
 
 
     optional string description = 1;
-    required Jobs jobs = 2;
+    repeated Jobs jobs = 2;
  
 }
